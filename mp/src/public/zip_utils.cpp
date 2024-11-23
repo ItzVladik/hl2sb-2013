@@ -122,12 +122,8 @@ public:
 			// generate safe name at the desired prefix
 			char uniqueFilename[MAX_PATH];
 			SYSTEMTIME sysTime;                                                       \
-			GetLocalTime( &sysTime );   
-#ifdef WIN32			
+			GetLocalTime( &sysTime );   		
 			sprintf_s( uniqueFilename, "%d_%d_%d_%d_%d.tmp", sysTime.wDay, sysTime.wHour, sysTime.wMinute, sysTime.wSecond, sysTime.wMilliseconds ); 
-#else			
-			sprintf( uniqueFilename, "%d_%d_%d_%d_%d.tmp", sysTime.wDay, sysTime.wHour, sysTime.wMinute, sysTime.wSecond, sysTime.wMilliseconds );                                                \
-#endif
 			V_ComposeFileName( WritePath.String(), uniqueFilename, tempFileName, sizeof( tempFileName ) );
 		}
 
@@ -201,11 +197,7 @@ public:
 			static int counter = 0;
 			time_t now = time( NULL );
 			struct tm *tm = localtime( &now );
-#ifdef WIN32
-			sprintf_s( uniqueFilename, "%d_%d_%d_%d_%d.tmp", tm->tm_wday, tm->tm_hour, tm->tm_min, tm->tm_sec, ++counter );                                   \
-#else
 			sprintf( uniqueFilename, "%d_%d_%d_%d_%d.tmp", tm->tm_wday, tm->tm_hour, tm->tm_min, tm->tm_sec, ++counter );                                          \
-#endif
 			V_ComposeFileName( WritePath.String(), uniqueFilename, tempFileName, sizeof( tempFileName ) );
 		}
 
