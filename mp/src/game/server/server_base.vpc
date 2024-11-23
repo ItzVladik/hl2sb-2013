@@ -728,8 +728,28 @@ $Project
             $File "$SRCDIR\public\mathlib\lvmatrix.cpp"
             $File "$SRCDIR\public\mathlib\lvmatrix.h"
             $File "$SRCDIR\public\lvphysics_interface.cpp"
+            
             $File "$SRCDIR\public\XUnzip.cpp"
+			{
+				$Configuration
+				{
+					$Compiler
+					{
+						$Create/UsePrecompiledHeader	"Not Using Precompiled Headers"
+					}
+				}
+			}
+            
             $File "$SRCDIR\public\zip_utils.cpp"
+            {
+				$Configuration
+				{
+					$Compiler
+					{
+						$Create/UsePrecompiledHeader	"Not Using Precompiled Headers"
+					}
+				}
+			}
 			
 			$File "$SRCDIR\game\shared\mountaddons.cpp"
             $File "$SRCDIR\game\shared\mountsteamcontent.cpp"
@@ -858,8 +878,9 @@ $Project
 
 	$Folder	"Header Files"
 	{
-		$File	"$SRCDIR\public\libmath_finite\libmath-finite.h"
-		$File	"$SRCDIR\public\libmath_finite\libmath-finite.c"
+		$File	"$SRCDIR\public\libmath_finite\libmath-finite.h" [$POSIX]
+		$File	"$SRCDIR\public\libmath_finite\libmath-finite.c" [$POSIX]
+		
 		$File	"$SRCDIR\public\mathlib\amd3dx.h"
 		$File	"$SRCDIR\game\shared\ammodef.h"
 		$File	"$SRCDIR\game\shared\base_playeranimstate.h"
