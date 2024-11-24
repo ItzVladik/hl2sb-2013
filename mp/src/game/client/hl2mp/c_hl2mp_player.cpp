@@ -14,6 +14,7 @@
 #include "iviewrender_beams.h"			// flashlight beam
 #include "r_efx.h"
 #include "dlight.h"
+#include "obstacle_pushaway.h"
 
 #if defined( LUA_SDK )
 #include "luamanager.h"
@@ -313,6 +314,12 @@ void C_HL2MP_Player::ClientThink( void )
 	}
 
 	UpdateIDTarget();
+
+	if ( gpGlobals->curtime >= m_fNextThinkPushAway )
+	{
+		PerformObstaclePushaway( this );
+		m_fNextThinkPushAway =  gpGlobals->curtime + HL2MP_PUSHAWAY_THINK_INTERVAL;
+	}
 }
 
 //-----------------------------------------------------------------------------

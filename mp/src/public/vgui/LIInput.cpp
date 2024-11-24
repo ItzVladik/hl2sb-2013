@@ -55,7 +55,6 @@ static int input_GetCurrentIMEHandle (lua_State *L) {
   return 1;
 }
 
-// Vlad: idk where declaration of this
 // static int input_GetCursorPos__USE_VCR_MODE (lua_State *L) {
 //   int x, y;
 //   input()->GetCursorPos__USE_VCR_MODE(x, y);
