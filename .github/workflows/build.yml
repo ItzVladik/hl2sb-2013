@@ -24,6 +24,9 @@ jobs:
       
       - name: Create project
         run: cd mp\src;devtools/bin/vpc.exe /hl2mp /2013 +game /mksln hl2sb.sln
+        
+      - name: Import RegKey
+        run: cd mp\src;REG IMPORT DefaultProjectExtension.reg
 
       - name: Build project
         run: cd mp\src;devenv hl2sb.sln /Build Release
